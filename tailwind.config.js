@@ -1,0 +1,83 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+    ],
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                green: {
+                    DEFAULT: '#00534d',
+                    50: '#e6f2f1',
+                    100: '#cce5e3',
+                    200: '#99cbc7',
+                    300: '#66b1ab',
+                    400: '#33978f',
+                    500: '#00534d',
+                    600: '#004a44',
+                    700: '#003833',
+                    800: '#002622',
+                    900: '#001311',
+                },
+                gold: {
+                    DEFAULT: '#C9A24D',
+                    50: '#FAF7F0',
+                    100: '#F5EDDA',
+                    200: '#EBDAB5',
+                    300: '#E1C790',
+                    400: '#D7B46B',
+                    500: '#C9A24D',
+                    600: '#B08A36',
+                    700: '#876A2A',
+                    800: '#5E4A1D',
+                    900: '#352A11',
+                },
+                brown: {
+                    DEFAULT: '#3E2C1C',
+                    50: '#F5F2EF',
+                    100: '#E8E1DA',
+                    200: '#D1C3B5',
+                    300: '#B9A590',
+                    400: '#A2876B',
+                    500: '#836F5A',
+                    600: '#655649',
+                    700: '#4E4237',
+                    800: '#3E2C1C',
+                    900: '#2A1E13',
+                },
+                cream: {
+                    DEFAULT: '#F9F6F1',
+                    50: '#FFFFFF',
+                    100: '#F9F6F1',
+                    200: '#F5EFE6',
+                    300: '#F0E8DA',
+                    400: '#EBE1CE',
+                    500: '#E6DAC2',
+                },
+                elegant: {
+                    DEFAULT: '#1E1E1E',
+                    50: '#F5F5F5',
+                    100: '#E0E0E0',
+                    200: '#BDBDBD',
+                    300: '#9E9E9E',
+                    400: '#757575',
+                    500: '#616161',
+                    600: '#424242',
+                    700: '#303030',
+                    800: '#1E1E1E',
+                    900: '#121212',
+                },
+            },
+        },
+    },
+    plugins: [],
+};
