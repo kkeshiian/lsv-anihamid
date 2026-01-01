@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
     working_dir: /var/www
     volumes:
-      - ./:/var/www
+      - laravel_code:/var/www      # <--- KITA UBAH INI (Pakai volume internal)
     networks:
       - laravel
 
@@ -20,10 +20,10 @@ services:
     container_name: laravel_nginx
     restart: unless-stopped
     ports:
-      - "8080:80" # Website akan bisa diakses di port 8080
+      - "8080:80"
     volumes:
-      - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/ # Kita perlu config nginx
+      - laravel_code:/var/www      # <--- KITA UBAH INI JUGA (Biar Nginx bisa baca filenya)
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
     depends_on:
       - app
     networks:
@@ -52,4 +52,6 @@ networks:
 
 volumes:
   dbdata:
+    driver: local
+  laravel_code:   # <--- Volume baru untuk menyimpan kodingan
     driver: local
