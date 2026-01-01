@@ -5,12 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel-app
+    # image: laravel-app  <-- HAPUS ATAU KOMENTAR BARIS INI
     container_name: laravel_app
     restart: unless-stopped
     working_dir: /var/www
     volumes:
-      - laravel_code:/var/www      # <--- KITA UBAH INI (Pakai volume internal)
+      - laravel_code:/var/www      # <--- PASTIKAN INI PAKAI VOLUME SHARED
     networks:
       - laravel
 
@@ -22,7 +22,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - laravel_code:/var/www      # <--- KITA UBAH INI JUGA (Biar Nginx bisa baca filenya)
+      - laravel_code:/var/www      # <--- INI JUGA HARUS SAMA
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     depends_on:
       - app
@@ -53,5 +53,5 @@ networks:
 volumes:
   dbdata:
     driver: local
-  laravel_code:   # <--- Volume baru untuk menyimpan kodingan
+  laravel_code:   # <--- VOLUME BARU WAJIB ADA
     driver: local
